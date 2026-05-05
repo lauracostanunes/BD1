@@ -14,3 +14,7 @@ CREATE TABLE alunos(
 
 -- Comando para consulta de dados de uma tabela
 SELECT * FROM alunos
+
+-- Cadastrar um novo registro ba tabela criada:
+INSERT INTO alunos
+VALUES (1234567, 'ANA', '1699985522', '2002/10/02') -- Data precisa estar nos padrões americanos
