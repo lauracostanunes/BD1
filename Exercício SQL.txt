@@ -1,0 +1,75 @@
+CREATE TABLE marca(
+	idMarca int PRIMARY KEY,
+	nomeMarca varchar(80),
+	situacao char(1)
+);
+
+INSERT INTO marca
+	VALUES (1, 'SKOL', 'A'),
+		   (2, 'BRAHMA', 'A'),
+		   (3, 'ANTARCTICA', 'A'),
+		   (4, 'HEINEKEN', 'A');
+
+CREATE TABLE produto(
+    idProd INTEGER PRIMARY KEY AUTOINCREMENT,
+    nomeProd varchar(100),
+    preco real,
+    idMarca int,
+    FOREIGN KEY (idMarca) REFERENCES marca(idMarca)
+);
+
+CREATE TABLE fornecedor(
+    idFor INTEGER PRIMARY KEY AUTOINCREMENT,
+    nomeFor varchar(100),
+    cnpj varchar(20),
+    endereco varchar(200),
+    telefone varchar(20)
+);
+
+-- Exercício 1
+INSERT INTO produto(nomeProd, preco)
+	VALUES ('Cerveja Lata 350ml', 4.50),
+		   ('Refrigerante 2L', 8.90),
+		   ('Água Mineral 500ml', 2.00);
+
+-- Exercício 2
+INSERT INTO fornecedor(nomeFor, cnpj, endereco, telefone)
+    VALUES ('Distribuidora Norte Ltda', '11.222.333/0001-44', 'Rua das Flores, 100 - São Paulo/SP', '(11) 91111-1111'),
+           ('Bebidas Sul S/A', '22.333.444/0001-55', 'Av. Brasil, 200 - Curitiba/PR', '(41) 92222-2222'),
+           ('Comércio Leste ME', '33.444.555/0001-66', 'Rua do Comércio, 300 - Salvador/BA', '(71) 93333-3333'),
+           ('Alimentos Oeste Eireli', '44.555.666/0001-77', 'Trav. Industrial, 400 - Manaus/AM', '(92) 94444-4444');
+
+-- Exercício 3
+UPDATE marca SET nomeMarca = 'LEVÍSSIMA'
+	WHERE nomeMarca = 'SKOL';
+
+-- Exercício 4
+INSERT INTO produto(nomeProd, preco)
+	VALUES ('Cerveja Garrafa 600ml', 9.00),
+		   ('Chopp Pilsen 1L', 15.00);
+
+-- Exercício 5
+UPDATE fornecedor SET cnpj = '123456789'
+	WHERE idFor = 3;
+
+-- Exercício 6
+UPDATE produto SET idMarca = 1
+	WHERE idMarca IS NULL;
+
+-- Exercício 7
+DELETE FROM produto
+	WHERE idProd = 2;
+
+-- Exercício 8
+UPDATE produto SET idMarca = 3
+	WHERE idMarca = 4;
+
+DELETE FROM marca
+	WHERE idMarca = 4;
+
+-- Exercício 9
+UPDATE produto SET preco = preco * 1.1
+	WHERE preco > 0;
+
+-- Exercício 10
+DROP TABLE fornecedor;
