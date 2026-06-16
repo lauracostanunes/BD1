@@ -97,7 +97,7 @@ INSERT INTO consumo VALUES
     (3, 5.00, 1, 11)
 
 -- 2. Atualize o nome do garçom que possui maior código para o seu nome
-UPDATE garcom SET nome = 'JONATA'
+UPDATE garcom SET nome = 'LAURA'
     WHERE codGarcom = (SELECT MAX(codGarcom) FROM garcom)
 
 -- 3. Crie uma campo para guardar o salário dos garçons
@@ -120,7 +120,7 @@ UPDATE garcom SET salario = 1800
 -- 7. Liste o seu salário caso você tivesse um aumento de salário de 15%
 -- Não atualize seu novo salário, apenas o exiba com o possível aumento
 SELECT nome, (salario * 1.15) AS 'novo salario' FROM garcom
-    WHERE nome = 'JONATA'
+    WHERE nome = 'LAURA'
 
 -- 8. Cadastre uma nova mesa e 2 novos atendimentos para esta mesa. Você é o garçom
 -- que está atendendo estes clientes e eles já consumiram 3 produtos diferentes
